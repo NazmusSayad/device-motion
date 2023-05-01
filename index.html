@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" src="./script.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      html {
+        font-family: sans-serif;
+      }
+
+      #Root {
+        display: grid;
+        place-content: center;
+        height: 100vh;
+      }
+
+      .dot {
+        width: 20px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        transition: 25ms;
+      }
+
+      #red {
+        background: red;
+      }
+
+      #blue {
+        background: blue;
+      }
+
+      #green {
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="Root">
+      <div class="dot" id="red"></div>
+      <div class="dot" id="blue"></div>
+    </div>
+
+    <script>
+      const Root = document.getElementById('Root')
+      Root.ondblclick = () => {
+        try {
+          Root.requestFullscreen().catch(() => {})
+          document.documentElement.requestFullscreen().catch(() => {})
+          document.body.requestFullscreen().catch(() => {})
+        } catch (err) {}
+      }
+    </script>
+  </body>
+</html>
